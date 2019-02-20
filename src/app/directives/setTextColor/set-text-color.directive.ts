@@ -10,3 +10,6 @@ export class SetTextColorDirective {
   }
 
 }
+
+// ElementRef -> provee acceso directo al DOM, pero la app se vuelve vulnerable a ataques XSS
+// Renderer2 -> provee manipulacion compleja del DOM

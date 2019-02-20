@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { SetTextColorDirective } from './directives/setTextColor/set-text-color.directive';
 import { HighLightTextDirective } from './directives/highLightText/high-light-text.directive';
 import { AddElementTextDirective } from './directives/addElementText/add-element-text.directive';
+import { StructuralComponent } from './structural/structural.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     SetTextColorDirective,
     HighLightTextDirective,
-    AddElementTextDirective
+    AddElementTextDirective,
+    StructuralComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,61 @@
+
+<h3>
+	{{title}}
+</h3>
+
+
+
+<div [ngStyle]="{
+  'background':'green',
+  'width': '190px',
+  'height': '10px',
+  'float': 'center',
+  'padding': '10px 0px 25px 25px',
+  'border-radius': '15px',
+  'font-size.px': '25',
+  'font': 'bold',
+  'margin': '1% 50% 5% 0'
+  }">
+<span [style.color]="'white'">
+  Ejemplo ngStyle
+</span>
+</div>
+
+<div>
+  <button type="button" (click)="onOff()"
+          class='buttonShape'
+          [class.shadow-green]="ready"
+          [class.shadow-red]="!ready"
+          [ngClass]="{'button-red': !ready, 'button-green': ready }">Ready button with ngClass</button>
+</div>
+
+
+<img *ngIf="ready" src="../../assets/bobsponge.png" alt="Smiley face" height="200" width="230">
+<img *ngIf="ready == false" src="../../assets/bob.png" alt="Smiley face" height="200" width="230">
+<div>
+  <label for="area">ingrese el area: </label>
+  <input type="text" name="area" [ngModel]="area" (ngModel)="area = $event" />
+</div>
+
+<div [ngSwitch]="area">
+  <p *ngSwitchCase="'Dev'">Hey you are a developer</p>
+  <p *ngSwitchCase="'QA'">Hey you are a QA</p>
+  <p *ngSwitchCase="'DevOps'">Hey you are a DevOps</p>
+  <p *ngSwitchDefault>What the hell are you?</p>
+</div>
+
+
+
+
+
+<h3>Listado ingreso salida de la semana</h3>
+<ul>
+  <li *ngFor="let enter of incomes; let i = index; let first = first; let last = last;"
+      [ngClass]="{ first: first, last: last }">
+		<strong>Dia {{i+1}}:</strong>
+		<ul>
+			<li>Entrada: {{enter}} - Salida: {{exits[i]}}</li>
+		</ul>
+	</li>
+</ul>
+

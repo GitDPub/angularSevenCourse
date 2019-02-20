@@ -1,0 +1,23 @@
+.buttonShape {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 30px;
+  cursor: pointer;
+}
+
+.button-green {background-color: #4CAF50;} /* green */
+.button-red {background-color: #f44336;} /* Red */
+
+.shadow-red {
+  box-shadow: 5px 10px #be6c66;
+}
+
+.shadow-green {
+  box-shadow: 5px 10px rgb(87, 134, 89);
+}

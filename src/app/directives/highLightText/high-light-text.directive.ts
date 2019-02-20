@@ -29,15 +29,6 @@ export class HighLightTextDirective {
     this.renderer.setStyle(this.elementRef.nativeElement, 'color', 'red');
     this.renderer.setStyle(this.elementRef.nativeElement, 'backgroundColor', color);
 
-    const text = this.renderer.createText('Hello world!');
-    this.renderer.appendChild(this.elementRef.nativeElement, text);
-
-    // const div = this.renderer.createElement('div');
-    // this.renderer.appendChild(div, text);
-    // this.renderer.appendChild(this.elementRef.nativeElement, div);
-
-
-
   }
 
 }
