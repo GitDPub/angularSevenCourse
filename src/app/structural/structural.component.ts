@@ -21,6 +21,7 @@ export class StructuralComponent implements OnInit, IUser {
   incomes: Array<any>;
   exits: any[];
   general: {};
+
   constructor() { }
 
   getData(): string {
@@ -41,13 +42,15 @@ export class StructuralComponent implements OnInit, IUser {
     this.incomes = [];
     this.exits = [];
     this.general = {
-      image: ''
+      imageDev: '../../assets/images/dev.jpeg',
+      imageQA: '../../assets/images/qa.png',
+      imageDevOps: '../../assets/images/devops.png'
     };
     this.generateUserData(5);
   }
 
   private random(min: number, max: number ): number {
-    return Math.floor(Math.random() * max) + min;
+    return Math.floor(Math.random() * (max - min)) + min;
   }
 
   private generateUserData(top: number) {

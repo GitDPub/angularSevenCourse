@@ -30,18 +30,29 @@
 </div>
 
 
-<img *ngIf="ready" src="../../assets/bobsponge.png" alt="Smiley face" height="200" width="230">
-<img *ngIf="ready == false" src="../../assets/bob.png" alt="Smiley face" height="200" width="230">
+<img *ngIf="ready" src="../../assets/images/bobsponge.png" alt="Smiley face" height="200" width="230">
+<img *ngIf="ready == false" src="../../assets/images/bob.png" alt="Smiley face" height="200" width="230">
+
 <div>
   <label for="area">ingrese el area: </label>
-  <input type="text" name="area" [ngModel]="area" (ngModel)="area = $event" />
+  <input type="text" name="area" [ngModel]="area" (ngModelChange)="area = $event" />
+  <!-- <input type="text" name="area" [(ngModel)]="area"/> -->
 </div>
+
+
+
 
 <div [ngSwitch]="area">
   <p *ngSwitchCase="'Dev'">Hey you are a developer</p>
+  <img *ngSwitchCase="'Dev'" src="../../assets/images/dev.jpeg" alt="" height="200" width="300"/>
+
   <p *ngSwitchCase="'QA'">Hey you are a QA</p>
+  <img *ngSwitchCase="'QA'" src="../../assets/images/qa.png" alt="" height="200" width="230"/>
+
   <p *ngSwitchCase="'DevOps'">Hey you are a DevOps</p>
-  <p *ngSwitchDefault>What the hell are you?</p>
+  <img *ngSwitchCase="'DevOps'" src="../../assets/images/devops.png" alt="" height="200" width="300"/>
+
+  <p *ngSwitchDefault>What are you?</p>
 </div>
 
 

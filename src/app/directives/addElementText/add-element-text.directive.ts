@@ -12,14 +12,14 @@ export class AddElementTextDirective implements OnInit{
 
   ngOnInit() {
 
-    const text = this.renderer.createText('lets play!');
-    // this.renderer.appendChild(this.elementRef.nativeElement, text);
+    const text = this.renderer.createText('texto creado');
+    this.renderer.appendChild(this.elementRef.nativeElement, text);
 
-    const tag = this.renderer.createElement('h6');
-    this.renderer.appendChild(tag, text);
-    this.renderer.appendChild(this.elementRef.nativeElement, tag);
+    // const tag = this.renderer.createElement('h6');
+    // this.renderer.appendChild(tag, text);
+    // this.renderer.appendChild(this.elementRef.nativeElement, tag);
 
-    this.renderer.addClass(this.elementRef.nativeElement, 'ball');
+    // this.renderer.addClass(this.elementRef.nativeElement, 'ball');
 
   }
 
