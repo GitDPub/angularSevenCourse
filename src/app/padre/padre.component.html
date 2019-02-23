@@ -1,0 +1,19 @@
+<h4> Propiedades inout en Angular </h4>
+{{title}}
+<hr>
+
+<componente-hijo 
+    [dePadreAHijo]="'con input se manda desde el padre al hijo, valor de propiedad: dePadreAHijo'"
+    [propiedad]="clase"
+
+    (deHijoAPadre)="recibirDatos($event)"
+    >
+    <!-- el metodo recibirDatos se halla en el componente padre y recibe los datos del evento -->
+
+</componente-hijo>
+
+<!-- <div *ngIf="event"></div> -->
+<div *ngIf="datosDelHijo">
+    <h2>{{datosDelHijo.curso}} </h2>
+    <h2>{{datosDelHijo.comunidad}} </h2>
+</div>
