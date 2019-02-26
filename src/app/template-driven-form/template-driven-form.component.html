@@ -1,0 +1,64 @@
+<form #formRegistration="ngForm" (ngSubmit)="onSubmit(); formRegistration.reset()" >
+  <p>
+  <label > Nombre </label>
+  <input type="text" name="name" #name="ngModel" [(ngModel)]="register.name" required pattern="[a-zA-Z#]+">
+  <span *ngIf="name.touched && !name.valid">
+          name field invalid!
+  </span>
+  </p>
+
+  <p>
+    <label > email </label>
+    <input type="email" name="email" #email="ngModel" [(ngModel)]="register.email" required>
+    <span *ngIf="email.touched && !email.valid">
+      email field invalid!
+    </span>
+  </p>
+
+  <p>
+    <label for="subject">Curso: </label>
+    <select id="subject" name="course" #course="ngModel" [(ngModel)]="register.course" required>
+      <option *ngFor="let item of courses" [value]="item">{{item}}</option>
+    </select>
+    <span [hidden]="!course.pristine">
+        course selection invalid!
+    </span>
+  </p>
+
+  <!-- <p>
+    <label> Genero: </label>
+    <i *ngFor="let key of genders">
+        <label>
+            <input type="radio" [value]="key" name="gender" #gender="ngModel" [(ngModel)]="register.gender">
+            <input type="radio" name="keys_on_hand" [value]="key" [(ngModel)]="register.gender">
+              {{key}}
+        </label>
+    </i>
+  </p> -->
+
+  <p>
+    <label>Genero: {{register.gender}} - </label>
+      <input type="radio" [value]="'M'" name="gender" required #gender="ngModel" [(ngModel)]="register.gender"> Male
+      <input type="radio" [value]="'F'" name="gender" required #gender="ngModel" [(ngModel)]="register.gender"> Female
+  </p>
+
+  <p>
+    <label > Celular </label>
+    <input type="number" name="cellPhone" #cellPhone="ngModel" [(ngModel)]="register.cellPhone" required pattern="[0-9]+">
+    <span *ngIf="cellPhone.touched && !cellPhone.valid">
+              cellPhone field invalid!
+    </span>
+  </p>
+
+  <p>
+    <label>
+      <input type="checkbox" name="notification" #notification="ngModel" [(ngModel)]="register.notification" (change)="notificationStatus($event)"/>
+        Recibir notificacones
+    </label>
+  </p>
+
+
+
+ <input type="submit" value="Registrar" [disabled]="!formRegistration.form.valid" >
+
+</form>
