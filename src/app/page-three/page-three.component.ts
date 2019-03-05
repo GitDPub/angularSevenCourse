@@ -26,8 +26,8 @@ export class PageThreeComponent implements OnInit {
          });
   }
 
-  navigateToOne(){
-    this._router.navigate(['/one', '123'], {skipLocationChange: true});
+  navigateToThree(){
+    this._router.navigate(['/three', '123'], {skipLocationChange: true});
   }
 
   navigateToTwo(){
