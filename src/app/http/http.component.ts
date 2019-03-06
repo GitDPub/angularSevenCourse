@@ -11,7 +11,7 @@ export class HttpComponent implements OnInit {
 
   clientes: ICliente[];
   idEmployee: number;
-  body: any;
+  body = '{"name":"test1", "salary":"1123", "age":"23", "id": "4950"}';
 
   constructor(
     private request: ServiceClientHttpService,
@@ -19,23 +19,17 @@ export class HttpComponent implements OnInit {
 
   ngOnInit() {
     this.getAll();
-    this.getOne('4851');
+    this.getOne('4900');
   }
 
   getAll() {
     this.request.getAllEmployees()
       .subscribe(
-        (data: ICliente[]) =>  { //start of (1)
-          this.clientes = data;
-        }, //end of (1)
-        (error: any)   => console.log('error on getAll:  ', error), //(2) second argument
-        ()             => console.log('* getAll done') //(3) second argument
+        (data: ICliente[]) =>  { this.clientes = data; }, // Funcion callback que devuelve datos cuando la peticion es exitosa.
+        (error: any)   => console.log('error on getAll:  ', error), // Funcion callback que devuelve error cuando la peticion falla.
+        () => console.log('* getAll done') // Funcion callback sin ningun parametro y devuelve nada despues de terminar la peticion.
       );
   }
-
-  // (1) A callback function that returns the data on success request
-  // (2) A callback function that returns the error on failed request
-  // (3) And the complete callback function that takes no parameter and returns nothing after the request finished executing.
 
   getOne(id): void {
     this.request.getEmployee(id)
@@ -52,11 +46,9 @@ export class HttpComponent implements OnInit {
     const employeeData: any = {name: 'test', salary: '123', age: '23'};
     this.request.addEmployee(employeeData)
         .subscribe(
-            (data: any) => {
-                console.log('* Response of the employee added: ', JSON.stringify(data, null, 2));
-            }, // (1)
-            (error: any) => console.log(error), //(2)
-            () => console.log('* add completed') //(3)
+            response => { console.log('* Response of the employee added: ', JSON.stringify(response, null, 2)); },
+            error => console.log(error),
+            () => console.log('* add completed')
         );
   }
 
@@ -70,8 +62,9 @@ export class HttpComponent implements OnInit {
         );
   }
 
-  updateEmployee(body: any) {
-    this.request.updateEmployee(body)
+  updateEmployee(body: string) {
+    const values = JSON.parse(body);
+    this.request.updateEmployee(values)
         .subscribe(
             (res: any) => {
                 console.log('# updated: ', res);
