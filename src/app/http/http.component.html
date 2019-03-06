@@ -1,0 +1,24 @@
+<p>
+  http client with services
+</p>
+<div>
+  <button (click)="addEmployee()">ADD EMPLOYEE</button>
+</div>
+<br>
+<div>
+  <button (click)="deleteEmployee()">REMOVE EMPLOYEE</button>
+  <input type="number" [(ngModel)] = "idEmployee">
+</div>
+<div>
+  <button (click)="updateEmployee(body)">UPDATE EMPLOYEE</button>
+  <textarea name="" id="" cols="30" rows="10" [(ngModel)] = "body"></textarea>
+</div>
+
+<div class="listado" style="margin-left: 40px; margin-top:30px;">
+
+  <ul>
+      <li *ngFor="let item of clientes"> 
+        {{item.id}} - {{item.employee_name}} - {{item.employee_salary}}
+      </li>
+  </ul>
+</div>
